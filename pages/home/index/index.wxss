@@ -1,0 +1,100 @@
+page{
+  background-color: #F5F5F5;
+}
+
+.home-container{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.home-content{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.category-content{
+  width: 95%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 50rpx;
+}
+
+.category-item{
+  width: 22%;
+  display: flex;
+  flex-direction: column;
+}
+
+.header{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  z-index: 100;
+  background: white;
+  box-shadow: 0rpx 0rpx 10rpx 5rpx gainsboro;
+}
+
+.header image{
+  width: 160rpx;
+}
+
+.item-content{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  margin-top: 190rpx;
+  border-radius: 15rpx;
+   box-shadow: 0rpx 0rpx 10rpx 5rpx gainsboro;
+   background: white;
+}
+
+.item-list{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 0rpx 10rpx;
+}
+
+.item{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 28rpx;
+
+  padding: 10rpx 0rpx;
+}
+
+.title{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 30rpx;
+  margin: 10rpx 0rpx;
+  padding: 10rpx 0rpx;
+  font-weight: bold;
+  color: green;
+}
+
+.huishou-color{
+  color: #215287;
+}
+
+.youhai-color{
+  color: #EA3E30;
+}
+
+.si-color{
+  color: #62423A;
+}
+
+.gan-color{
+  color: #2E2C2A;
+}

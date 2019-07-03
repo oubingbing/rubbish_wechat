@@ -1,0 +1,7 @@
+.my-color{
+  color:#F8F8F8
+}
+
+.test{
+  color: red;
+}

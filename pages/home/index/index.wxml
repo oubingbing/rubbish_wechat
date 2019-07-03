@@ -1,0 +1,30 @@
+<view class='home-container'>
+  <view class='home-content'>
+    <view class='category-content'>
+
+      <view class='category-item' 
+            wx:for="{{rubbishList}}" 
+            wx:key="{{item.id}}">
+        <view class='header'>
+          <image src='{{item.attachments[0]}}' mode='widthFix'></image>
+        </view>
+        <view class='item-content {{item.color}}'>
+          <view class='item-list'
+                wx:key="{{category.id}}" 
+                wx:for="{{item.category}}"
+                wx:if="{{category.rubbish.length>0}}" 
+                wx:for-item="category">
+            <view class='title'>{{category.name}}</view>
+            <view class='item' 
+                  wx:key="{{rubbish.id}}" 
+                  wx:for="{{category.rubbish}}" 
+                  wx:for-item="rubbish">
+              <view>{{rubbish.name}}</view>
+            </view>
+          </view>
+        </view>
+      </view>
+
+    </view>
+  </view>
+</view>

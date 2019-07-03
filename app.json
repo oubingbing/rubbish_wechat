@@ -1,0 +1,11 @@
+{
+  "pages": [
+    "pages/home/index/index"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "white",
+    "navigationBarTitleText": "垃圾分类绿色环保",
+    "navigationBarTextStyle": "black"
+  }
+}
