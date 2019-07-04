@@ -5,7 +5,10 @@ const app = getApp();
 Page({
 
   data: {
-    rubbishList:[]
+    rubbishList:[],
+    category:[],
+    background:'',
+    id:''
   },
 
   onLoad: function (options) {
@@ -38,12 +41,40 @@ Page({
           return res;
         })
 
-        console.log(resData.data);
-
         this.setData({
-          rubbishList:resData.data
+          rubbishList:resData.data,
+          category:resData.data[0].category,
+          background:resData.data[0].color,
+          id:1
         });
       }
     });
-  }
+  },
+
+  switchTab:function(e){
+    let id = e.currentTarget.dataset.id;
+    this.setData({
+      category:this.data.rubbishList[id-1].category,
+      background: this.data.rubbishList[id - 1].color,
+      id: this.data.rubbishList[id - 1].id
+    });
+  },
+
+  /**
+* 分享
+*/
+  onShareAppMessage: function (res) {
+    return {
+      title: '垃圾分类，守护地球',
+      path: '/pages/home/index/index',
+      imageUrl: '/images/top2.jpg',
+      success: function (res) {
+        // 转发成功
+      },
+      fail: function (res) {
+        // 转发失败
+      }
+    }
+  },
+
 })

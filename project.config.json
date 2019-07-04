@@ -28,6 +28,25 @@
 		"game": {
 			"current": -1,
 			"list": []
+		},
+		"miniprogram": {
+			"current": 1,
+			"list": [
+				{
+					"id": 0,
+					"name": "科普知识",
+					"pathName": "pages/article/index/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "文章详情",
+					"pathName": "pages/article/detail/detail",
+					"query": "",
+					"scene": null
+				}
+			]
 		}
 	}
 }

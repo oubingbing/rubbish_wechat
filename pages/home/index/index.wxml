@@ -1,30 +1,39 @@
 <view class='home-container'>
   <view class='home-content'>
     <view class='category-content'>
-
-      <view class='category-item' 
+      <view class='category-item'
+            bindtap='switchTab'
+            data-id='{{item.id}}'
             wx:for="{{rubbishList}}" 
             wx:key="{{item.id}}">
         <view class='header'>
           <image src='{{item.attachments[0]}}' mode='widthFix'></image>
         </view>
-        <view class='item-content {{item.color}}'>
-          <view class='item-list'
+      </view>
+    </view>
+
+    <view class='body'>
+      <view class='qipao-content'>
+        <view class="{{id==1?'qipao1':''}}"></view>
+        <view class="{{id==2?'qipao2':''}}"></view>
+        <view class="{{id==3?'qipao3':''}}"></view>
+        <view class="{{id==4?'qipao4':''}}"></view>
+      </view>
+      <view class='body-content {{background}}'>
+          <view class='body-item' 
                 wx:key="{{category.id}}" 
-                wx:for="{{item.category}}"
-                wx:if="{{category.rubbish.length>0}}" 
-                wx:for-item="category">
-            <view class='title'>{{category.name}}</view>
-            <view class='item' 
-                  wx:key="{{rubbish.id}}" 
-                  wx:for="{{category.rubbish}}" 
-                  wx:for-item="rubbish">
-              <view>{{rubbish.name}}</view>
+                wx:for="{{category}}"
+                wx:if="{{item.rubbish.length>0}}">
+            <view class='title'>{{item.name}}</view>
+            <view class='item-content'>
+              <view class='item' 
+                    wx:key="{{rubbish.id}}" 
+                    wx:for="{{item.rubbish}}" 
+                    wx:for-item="rubbish">{{rubbish.name}}</view>
             </view>
           </view>
-        </view>
       </view>
-
     </view>
+
   </view>
 </view>

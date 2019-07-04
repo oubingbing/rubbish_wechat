@@ -1,11 +1,33 @@
 {
   "pages": [
-    "pages/home/index/index"
+    "pages/home/index/index",
+    "pages/article/index/index",
+    "pages/article/detail/detail"
   ],
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "white",
     "navigationBarTitleText": "垃圾分类绿色环保",
     "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "color": "#515151",
+    "selectedColor": "#3CC4A9",
+    "borderStyle": "black",
+    "backgroundColor": "#ffffff",
+    "list": [
+      {
+        "pagePath": "pages/home/index/index",
+        "iconPath": "/images/category.png",
+        "selectedIconPath": "/images/select-category.png",
+        "text": "分类"
+      },
+      {
+        "pagePath": "pages/article/index/index",
+        "iconPath": "/images/article.png",
+        "selectedIconPath": "/images/select-article.png",
+        "text": "科普知识"
+      }
+    ]
   }
 }

@@ -1,0 +1,25 @@
+<view class="detail-container">
+  <view class='detail-content'>
+    <view class='title'>{{article.title}}</view>
+    <view class='user-info'>
+      <view class='user' wx:if="{{article!=''}}">绿色地球</view>
+      <view class='date'>{{article.posted_at}}</view>
+    </view>
+    <view class='content'>
+      <view class='content-item' wx:if="{{item.content != '' && index != 0}}" wx:for="{{article.content}}" wx:key="{{item}}">
+        <view class='text' wx:if="{{item.type=='text'}}">{{item.content}}</view>
+        <image wx:if="{{item.type=='image'}}" 
+                mode='widthFix'
+                bindtap='previewImage'
+                data-id='{{item.content}}'
+               src='{{item.content}}'></image>
+      </view>
+    </view>
+    <ad style="margin-bottom:70rpx;" wx:if="{{article!=''}}" unit-id="adunit-36cdae683e006dd5"></ad>
+  </view>
+
+  <view class='home-page' bindtap='openHome' wx:if="{{showHomePage}}">
+    <view class='home-title'>首页</view>
+  </view>
+
+</view>

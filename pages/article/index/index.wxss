@@ -1,0 +1,263 @@
+page{
+  background-color: #F5F5F5;
+}
+
+.home-container{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.content{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.header-container{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: white;
+  position: fixed;
+  z-index: 100;
+  border-top-style:solid;
+  border-width:1rpx;
+  border-color: #EDEDED;
+  font-size: 30rpx;
+}
+
+.header-item{
+  padding: 20rpx 0rpx;
+  color: darkgray;
+}
+
+.select-tab{
+  border-bottom-style:solid;
+  border-width:5rpx;
+  border-color: #3CC4A9;
+  color: #3CC4A9;
+  font-weight: bold;
+  padding: 20rpx 0rpx;
+}
+
+.header{
+  width: 95%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.article-info-content{
+  width: 70%;
+  display: flex;
+  flex-direction: row;
+}
+
+.monst-new-content{
+  width: 20%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  color: #3CC4A9;
+}
+
+.user-info{
+  margin-right: 50rpx;
+}
+
+.search-container{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 100rpx;
+  margin-bottom: -80rpx;
+}
+
+.search-container .search{
+  width: 95%;
+  display: flex;
+  flex-direction: row;
+  margin-top: 15rpx;
+  margin-bottom: 15rpx;
+}
+
+.search .search-input{
+  background: #E6E6E6;
+  width:85%;
+  height: 75rpx;
+  font-weight: 200;
+  font-size: 30rpx;
+  text-align: center;
+  border-radius:15rpx 0 0 15rpx;
+}
+
+.search-image{
+  width: 15%;
+  background: white;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  border-radius: 0 15rpx 15rpx 0;
+}
+
+.search-image image{
+  width: 40rpx;
+  height: 40rpx;
+}
+
+/** 攻略列表 **/
+.article-container{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.article-content{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.article-item{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  background: white;
+  align-items: center;
+  justify-content: center;
+}
+
+.item-content{
+  width: 90%;
+  display: flex;
+  flex-direction: row;
+  border-bottom-style:solid;
+  border-width:1rpx;
+  border-color: #EDEDED;
+    padding: 20rpx 0rpx;
+}
+
+.article-left{
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.article-right{
+  width: 20%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.article-right image{
+  width: 150rpx;
+  height: 150rpx;
+  border-radius: 10rpx;
+}
+
+.article-title{
+  font-size: 32rpx;
+}
+
+.article-info{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  font-size: 27rpx;
+  color: gray;
+}
+
+.user-info{
+  margin-right: 50rpx;
+}
+
+/** 授权按钮 **/
+.auth-container{
+  position: fixed;
+  z-index: 300;
+  width: 100%;
+  height: 100%;
+  background: gray;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background:rgba(2,2,2,0.6);
+}
+
+.auth-container .auth-wall{
+  background: white;
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 15rpx;
+}
+
+.auth-wall .auth-tips{
+  padding-top: 40rpx;
+  padding-bottom: 40rpx;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: gray;
+  font-size: 30rpx;
+}
+
+.auth-tips image{
+  width: 120rpx;
+  height: 120rpx;
+  margin-bottom: 10rpx;
+}
+
+.auth-button{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  background: #43CD80;
+  width: 100%;
+  color: white;
+  font-size: 35rpx;
+  border-radius: 0rpx;
+  border-bottom-left-radius: 15rpx;
+  border-bottom-right-radius: 15rpx;
+}
+
+.auth-button .auth-image-container{
+  display: flex;
+  flex-direction: column;
+}
+
+.auth-button image{
+  width: 50rpx;
+  height: 50rpx;
+  margin-right: 10rpx;
+}
+
+.power_by{
+  color: #D3D3D3;
+}
+
+.coupon-receive{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+
+}
+
+.receive{
+  width: 95%;
+  display:flex;
+  flex-direction: column;
+}

@@ -1,0 +1,39 @@
+<view class='home-container'>
+  <view class='content'>
+
+    <!-- 文章列表 -->
+    <view class='article-container'>
+      <view class='article-content'>
+
+        <view class='article-item' 
+              wx:for="{{articleList}}"
+              wx:key="{{item.id}}"
+              data-id='{{item.id}}'
+              bindtap='openGoodsDetail'>
+          <view class='item-content'>
+              <view class='article-left'>
+                <view class='article-title'>{{item.title}}</view>
+                <view class='article-info'>
+                  <view class='article-info-content'>
+                    <view class='user-info'>绿色地球</view>
+                    <view>{{item.posted_at}}</view>
+                  </view>
+                  <view class='monst-new-content' wx:if="{{item.is_new==1}}">
+                    <view class='monst-new'>最新</view>
+                  </view>
+                </view>
+              </view>
+            <view class='article-right'>
+              <image src='{{item.article_image}}' mode='aspectFill'></image>
+            </view>
+          </view>
+        </view>
+
+      </view>
+    </view>
+
+  </view>
+
+  <get-more-loading wx:if="{{showGeMoreLoadin}}"></get-more-loading>
+  <not-more wx:if="{{notDataTips && articleList.length>0}}"></not-more>
+</view>
