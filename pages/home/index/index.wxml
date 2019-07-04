@@ -36,4 +36,9 @@
     </view>
 
   </view>
+
+  <view class='search-button'>
+    <image src='/images/search.png' bindtap='goSearch'></image>
+  </view>
+
 </view>

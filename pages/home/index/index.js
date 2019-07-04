@@ -77,4 +77,13 @@ Page({
     }
   },
 
+  /**
+   * 查看商品详情
+   */
+  goSearch: function (e) {
+    wx.navigateTo({
+      url: '/pages/home/search/search?showPage=false' 
+    })
+  },
+
 })

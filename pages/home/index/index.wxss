@@ -154,3 +154,23 @@
   margin-top: -18rpx;
   margin-left: 20rpx;
 }
+
+.search-button{
+  width: 60rpx;
+  height: 60rpx;
+  position: fixed;
+  z-index: 100;
+  bottom: 50rpx;
+  right: 50rpx;
+  background: white;
+  border-radius: 20rpx;
+}
+
+.search-button image{
+  width: 90rpx;
+  height: 90rpx;
+  position: fixed;
+  z-index: 100;
+  bottom: 40rpx;
+  right: 40rpx;
+}
