@@ -7,7 +7,10 @@ const uploader = require("./../../../utils/uploadImage");
 Page({
   data: {
     token: '',
-    cam:''
+    cam:'',
+    list:[],
+    showResult:false,
+    uploadImage:''
   },
   onLoad: function () {
     this.getQiNiuToken();
@@ -48,6 +51,13 @@ Page({
               image_url: res.imageURL
             }, res => {
               wx.hideLoading();
+              if(res.data.code == 0){
+                this.setData({
+                  list:res.data.data,
+                  uploadImage: filePaths[0],
+                  showResult: true
+                });
+              }
             });
           }else{
             wx.showToast({
@@ -61,9 +71,12 @@ Page({
 
   },
 
-  /** 提交 */
-  post: function () {
-
-
+  closeResult:function(){
+    this.setData({
+      showResult:false
+    })
   },
+  doNotThing:function(){
+
+  }
 })

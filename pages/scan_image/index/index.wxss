@@ -53,29 +53,102 @@
 }
 
 .image-content{
-  width: 70%;
+  width: 85%;
+  height: 85%;
   display: flex;
   flex-direction: column;
   background: white;
   border-radius: 10rpx;
+  overflow:auto;
 }
 
-.save-image{
-  background: #3CC4A9;
-  width: 50%;
-  padding: 20rpx 0rpx;
-  margin-top: 60rpx;
-  color: white;
-  text-align: center;
+
+.result-content{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.result{
+  width: 85%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  margin-top: 30rpx;
+}
+
+.result-item{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 30rpx;
+}
+
+.title{
+  border-left-style:solid;
+  border-width:8rpx;
+  border-color: #3CC4A9;
+  font-size: 35rpx;
+  padding: 0rpx 10rpx;
+}
+
+.sub-item{
+  width: 100%;
+  margin-top: 15rpx;
+  font-size: 30rpx;
+}
+
+.item{
+  margin-left: 30rpx;
+  padding-bottom: 10rpx;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.huishou-c{
+  color: #215287;
+}
+
+.youhai-c{
+  color: #EA3E30;
+}
+
+.si-c{
+  color: #62423A;
+}
+
+.gan-c{
+  color: #2E2C2A;
+}
+
+.close-button{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10rpx 0rpx;
+  z-index: 200;
+  position: fixed;
+  top: 10rpx;
+}
+
+.close-button image{
+  width: 60rpx;
+  height: 60rpx;
+}
+
+.image-upload{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 40rpx;
+}
+
+.image-upload image{
+  width: 200rpx;
+  height: 140rpx;
   border-radius: 10rpx;
-}
-
-.image-content image{
-  width:100%;
-  border-radius: 10rpx;
-}
-
-.convas{
-  width: 375px;
-  height: 667px;
 }

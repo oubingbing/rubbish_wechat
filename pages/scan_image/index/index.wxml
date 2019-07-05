@@ -1,5 +1,5 @@
 
-<view class='edit-container'>
+<view class='edit-container' catchtap='closeResult'>
   <view class="page-body" >
     <view class='select-icon'>
       <view class='icon'>
@@ -9,14 +9,30 @@
     </view>
   </view>
 
-  <view class='image-container' wx:if="{{showImage}}">
-    <view class='image-content'>
-      <image src='{{screenImage}}' mode='widthFix'></image>
+  <view class='image-container' wx:if="{{showResult}}">
+    <view class='close-button'>
+      <image src='/images/colse.png' bindtap='closeResult'></image>
     </view>
-    <view bindtap='saveImage' class='save-image'>保存</view>
-  </view>
+    <view class='image-content' catchtap='doNotThing'>
+      <view class='result-content'>
+        <view class='result'>
+          <view class='image-upload'>
+            <image src='{{uploadImage}}' mode='aspectFill'></image>
+          </view>
+          <view class='result-item {{item.color}}' wx:for="{{list}}" wx:key="{{item.id}}">
+            <view class='title'>{{item.category}}</view>
+            <view class='sub-item'>
+              <view class='item'                  
+                    wx:for="{{item.rubbishs}}" 
+                    wx:key="{{item}}"
+                    style='color:{{sub.color_code}}'
+                    wx:for-item="sub">-> {{sub.name}}</view>
+            </view>
+          </view>
+        </view>
+      </view>
 
-  <poster id="poster" hide-loading="{{true}}" preload="{{false}}" hidden='true' config="{{posterConfig}}" bind:success="onPosterSuccess" bind:fail="onPosterFail">
-</poster>
+    </view>
+  </view>
 
 </view>
