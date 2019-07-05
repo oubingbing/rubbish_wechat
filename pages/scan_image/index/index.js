@@ -52,6 +52,7 @@ Page({
             }, res => {
               wx.hideLoading();
               if(res.data.code == 0){
+                console.log(res.data.data);
                 this.setData({
                   list:res.data.data,
                   uploadImage: filePaths[0],

@@ -24,7 +24,7 @@
             <view class='sub-item'>
               <view class='item'                  
                     wx:for="{{item.rubbishs}}" 
-                    wx:key="{{item}}"
+                    wx:key="{{sub.color_code}}"
                     style='color:{{sub.color_code}}'
                     wx:for-item="sub">-> {{sub.name}}</view>
             </view>
