@@ -6,7 +6,7 @@
         <input type='text' 
                class='search-input'
                value='{{searchName}}' 
-               placeholder="搜索材料"         
+               placeholder="搜索"         
                bindinput='getSearchName'/>
         <view class='search-image' bindtap='search'>
           <image mode="" src='/images/search.png'></image>
@@ -16,14 +16,14 @@
 
     <view class='result-content'>
       <view class='result'>
-        <view class='result-item' wx:for="{{result}}" wx:key="{{item.id}}">
-          <view class='title'>{{index}}</view>
+        <view class='result-item {{item.color}}' wx:for="{{result}}" wx:key="{{item.id}}">
+          <view class='title'>{{item.category}}</view>
           <view class='sub-item'>
             <view class='item'                  
-                  wx:for="{{item}}" 
+                  wx:for="{{item.rubbishs}}" 
                   wx:key="{{item}}"
                   style='color:{{sub.color_code}}'
-                  wx:for-item="sub">{{sub.place}} -> {{sub.name}}</view>
+                  wx:for-item="sub">-> {{sub.name}}</view>
           </view>
         </view>
       </view>

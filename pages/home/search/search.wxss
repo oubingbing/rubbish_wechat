@@ -81,7 +81,6 @@ page{
   border-left-style:solid;
   border-width:8rpx;
   border-color: #3CC4A9;
-  color: gray;
   font-size: 35rpx;
   padding: 0rpx 10rpx;
 }
@@ -90,7 +89,6 @@ page{
   width: 100%;
   margin-top: 15rpx;
   font-size: 30rpx;
-  color: darkgray;
 }
 
 .item{
@@ -104,4 +102,20 @@ page{
   text-align: center;
   color: darkgray;
   font-size: 30rpx;
+}
+
+.huishou-c{
+  color: #215287;
+}
+
+.youhai-c{
+  color: #EA3E30;
+}
+
+.si-c{
+  color: #62423A;
+}
+
+.gan-c{
+  color: #2E2C2A;
 }

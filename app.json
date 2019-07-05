@@ -2,6 +2,7 @@
   "pages": [
     "pages/home/index/index",
     "pages/home/search/search",
+    "pages/scan_image/index/index",
     "pages/article/index/index",
     "pages/article/detail/detail"
   ],
@@ -22,6 +23,12 @@
         "iconPath": "/images/category.png",
         "selectedIconPath": "/images/select-category.png",
         "text": "分类"
+      },
+      {
+        "pagePath": "pages/scan_image/index/index",
+        "iconPath": "/images/article.png",
+        "selectedIconPath": "/images/select-article.png",
+        "text": "拍照识别"
       },
       {
         "pagePath": "pages/article/index/index",

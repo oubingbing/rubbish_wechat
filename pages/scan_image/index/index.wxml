@@ -1,0 +1,22 @@
+
+<view class='edit-container'>
+  <view class="page-body" >
+    <view class='select-icon'>
+      <view class='icon'>
+        <image src='/images/scan_image.png' bindtap='selectImage'></image>
+        <view class='select-title'>拍照或选照片识别垃圾类型</view>
+      </view>
+    </view>
+  </view>
+
+  <view class='image-container' wx:if="{{showImage}}">
+    <view class='image-content'>
+      <image src='{{screenImage}}' mode='widthFix'></image>
+    </view>
+    <view bindtap='saveImage' class='save-image'>保存</view>
+  </view>
+
+  <poster id="poster" hide-loading="{{true}}" preload="{{false}}" hidden='true' config="{{posterConfig}}" bind:success="onPosterSuccess" bind:fail="onPosterFail">
+</poster>
+
+</view>
