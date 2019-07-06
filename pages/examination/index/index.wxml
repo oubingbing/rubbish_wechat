@@ -1,0 +1,127 @@
+
+<view class="test-container">
+
+  <view class="page-body" wx:if="{{!showTest}}" bindtap='starTest'>
+    <view class='select-icon'>
+      <view class='icon'>
+        <image src='/images/star-test.png' bindtap='selectImage'></image>
+        <view class='select-title'>点击开始垃圾分类测试</view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 测试结果 -->
+  <view class='check-report' catchtap='closeResult' wx:if="{{showResult}}">
+    <view class='close-button'>
+      <image src='/images/colse.png' bindtap='closeResult'></image>
+    </view>
+    <view class='report-content' catchtap='doNotThing'>
+      <view class='header-title'>
+        <image src='https://wx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTIzXDib7zrmdYyXID803afTWtwvorpoZgEUWGW37JOicoOt44VZ585Z7f9jibFMxib0zPmk3YF95kUfIQ/132'></image>
+        <view>垃圾分类测试报告</view>
+      </view>
+      <view class='score-content'>
+        <view class='score'>{{testCount.score}}</view>
+        <image src='/images/score-bg.png'></image>
+      </view>
+      <view class='report-data'>
+        <view class='report'>
+          <view class='report-item'>共{{testCount.totle_count}}题</view>
+          <view class='report-item'>答错：{{testCount.error}}</view>
+          <view class='report-item'>答对：{{testCount.right}}</view>
+          <view class='report-item'>测试得分：{{testCount.score}}</view>
+          <view class='report-item report-world'>垃圾分类熟练度超过全国{{testCount.rate}}%的用户</view>
+        </view>
+      </view>
+      <view class='qr-code'>
+        <image src='/images/qr-code.jpg'></image>
+      </view>
+    </view>
+  </view>
+
+  <view class='test-content' wx:if="{{showTest}}">
+    <!-- 轮播图 -->
+    <view class='swiper'>
+      <view class='test-title'>
+        <view>考试进行中（{{questions.length}}/{{showIndex+1}}）</view>
+      </view>
+      <swiper indicator-dots="true" 
+              indicator-color="#D6D6D6" 
+              indicator-active-color="#66CDAA"
+              circular="true"
+              duration="1500"
+              previous-margin="50rpx"
+              current="{{showIndex}}"
+              next-margin="50rpx"
+              easing-function="easeInOutCubic"
+              bindchange="onSwiperChange"
+              class='image-container'>
+          <block wx:for="{{questions}}" wx:key="{{item.id}}">
+            <swiper-item class="image-item">
+              <view class="question-container {{item.show==true?'current-image':'goods-image'}}">
+                <view class='question-content'>
+                  <view class='question'>{{item.name}}</view>
+                  <view style='font-size:30rpx;'>属于以下哪种类型的垃圾</view>
+                </view>
+                <view class='answer-content'>
+                  <view bindtap='answer' data-id='1' data-q_id='{{item.id}}'>
+                    <image src="{{currentSelect==1?'/images/kehuishou.png':'/images/a.png'}}"></image>
+                    <view class='image-txt' style='color:#215287'>可回收物</view>
+                  </view>
+                  <view bindtap='answer' data-id='2' data-q_id='{{item.id}}'>
+                    <image src="{{currentSelect==2?'/images/youhai.png':'/images/b.png'}}"></image>
+                    <view class='image-txt' style='color:#EA3E30'>有害垃圾</view>
+                  </view>
+                  <view bindtap='answer' data-id='3' data-q_id='{{item.id}}'>
+                    <image src="{{currentSelect==3?'/images/shi.png':'/images/c.png'}}"></image>
+                    <view class='image-txt' style='color:#62423A'>湿垃圾</view>
+                  </view>
+                  <view bindtap='answer' data-id='4' data-q_id='{{item.id}}'> 
+                    <image src="{{currentSelect==4?'/images/gan.png':'/images/d.png'}}"></image>
+                    <view class='image-txt' style='color:#2E2C2A'>干垃圾</view>
+                  </view>
+                </view>
+              </view>
+            </swiper-item>
+          </block>
+      </swiper>
+      <view class='next-content'>
+        <view class='next-button'>
+          <view class='next' bindtap='showNext'>下一题</view>
+        </view>
+      </view>
+    </view>
+
+    <view class='check-result' wx:if="{{showAnswerResult}}">
+      <view class='check-content'>
+        <view class='check'>
+          <view class='result-right' wx:if="{{answerResult}}">回答正确</view>
+          <view class='result-error' wx:if="{{!answerResult}}">
+            <view>回答错误，正确答案：</view>
+            <view class='right-world'>{{theRightResult}}</view>
+          </view>
+        </view>
+      </view>
+    </view>
+
+  </view>
+
+  <view class='restar' bindtap='restar' wx:if="{{showRestar}}">
+    <view class='restar-button'>再测一次</view>
+  </view>
+
+  <view wx:if="{{show_auth}}" class='auth-container'>
+    <view class='auth-wall'>
+      <view class='auth-tips'>
+        <image src='/images/wechat-logo.png'></image>
+        <view>授权您的公开信息(昵称和头像)</view>
+      </view>
+      <button open-type="getUserInfo" 
+              bindgetuserinfo="getAuthUserInfo" 
+              class='auth-button'>
+        <view>授权登录</view>
+      </button>
+    </view>
+  </view>
+
+</view>

@@ -12,6 +12,9 @@ Page({
   },
 
   onLoad: function (options) {
+    wx.showLoading({
+      title: '加载中...',
+    })
     this.getRubbish();
   },
 
@@ -21,6 +24,7 @@ Page({
 
   getRubbish:function(){
     http.get(`/rubbishs`, {}, res => {
+      wx.hideLoading();
       let resData = res.data;
       if (resData.code == 0) {
         resData.data.map(res=>{
@@ -67,7 +71,7 @@ Page({
     return {
       title: '垃圾分类，守护地球',
       path: '/pages/home/index/index',
-      imageUrl: '/images/top2.jpg',
+      imageUrl: '/images/share.jpg',
       success: function (res) {
         // 转发成功
       },

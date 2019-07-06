@@ -47,7 +47,7 @@
   flex-direction: column;
   position: fixed;
   z-index: 100;
-  background:rgba(2,2,2,0.6);
+  background:rgba(2,2,2,0.7);
   align-items: center;
   justify-content: center;
 }
@@ -92,6 +92,7 @@
   border-color: #3CC4A9;
   font-size: 35rpx;
   padding: 0rpx 10rpx;
+  font-weight: bold;
 }
 
 .sub-item{
@@ -150,5 +151,21 @@
 .image-upload image{
   width: 200rpx;
   height: 140rpx;
+  border-radius: 10rpx;
+}
+
+.qr-code{
+  width: 150rpx;
+  height: 150rpx;
+  position: absolute;
+  z-index: 200;
+  right: 12%;
+  top: 9%;
+  border-radius: 10rpx;
+}
+
+.qr-code image{
+  width: 150rpx;
+  height: 150rpx;
   border-radius: 10rpx;
 }

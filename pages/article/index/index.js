@@ -99,7 +99,7 @@ Page({
     return {
       title: '垃圾分类，守护地球',
       path: '/pages/home/index/index',
-      imageUrl: '/images/top2.jpg',
+      imageUrl: '/images/share.jpg',
       success: function (res) {
         // 转发成功
       },

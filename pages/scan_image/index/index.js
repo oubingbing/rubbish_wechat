@@ -42,7 +42,7 @@ Page({
       sourceType: ['album', 'camera'],
       success: res => {
         wx.showLoading({
-          title: '识别中',
+          title: '识别中...',
         })
         let filePaths = res.tempFilePaths;
         uploader.upload(configs, filePaths[0], res => {
@@ -53,11 +53,23 @@ Page({
               wx.hideLoading();
               if(res.data.code == 0){
                 console.log(res.data.data);
-                this.setData({
-                  list:res.data.data,
-                  uploadImage: filePaths[0],
-                  showResult: true
-                });
+                if(res.data.data.length>0){
+                  this.setData({
+                    list: res.data.data,
+                    uploadImage: filePaths[0],
+                    showResult: true
+                  });
+                }else{
+                  wx.showToast({
+                    title: '查询不到数据',
+                    icon: 'none'
+                  })
+                }
+              }else{
+                wx.showToast({
+                  title: '识别出错，请重试',
+                  icon: 'none'
+                })
               }
             });
           }else{
@@ -79,5 +91,22 @@ Page({
   },
   doNotThing:function(){
 
-  }
+  },
+
+  /**
+  * 分享
+  */
+  onShareAppMessage: function (res) {
+    return {
+      title: '垃圾分类，守护地球',
+      path: '/pages/home/index/index',
+      imageUrl: '/images/share.jpg',
+      success: function (res) {
+        // 转发成功
+      },
+      fail: function (res) {
+        // 转发失败
+      }
+    }
+  },
 })

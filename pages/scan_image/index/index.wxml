@@ -19,7 +19,7 @@
           <view class='image-upload'>
             <image src='{{uploadImage}}' mode='aspectFill'></image>
           </view>
-          <view class='result-item {{item.color}}' wx:for="{{list}}" wx:key="{{item.id}}">
+          <view class='result-item' wx:for="{{list}}" wx:key="{{item.id}}">
             <view class='title'>{{item.category}}</view>
             <view class='sub-item'>
               <view class='item'                  
@@ -30,6 +30,10 @@
             </view>
           </view>
         </view>
+      </view>
+
+      <view class='qr-code'>
+        <image src='/images/qr-code.jpg'></image>
       </view>
 
     </view>

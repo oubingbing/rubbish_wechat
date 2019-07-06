@@ -35,4 +35,21 @@ Page({
       }
     });
   },
+  
+  /**
+  * 分享
+  */
+  onShareAppMessage: function (res) {
+    return {
+      title: '垃圾分类，守护地球',
+      path: '/pages/home/index/index',
+      imageUrl: '/images/share.jpg',
+      success: function (res) {
+        // 转发成功
+      },
+      fail: function (res) {
+        // 转发失败
+      }
+    }
+  },
 })
