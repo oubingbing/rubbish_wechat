@@ -44,11 +44,13 @@ Page({
         wx.showLoading({
           title: '识别中...',
         })
+       
         let filePaths = res.tempFilePaths;
         uploader.upload(configs, filePaths[0], res => {
           if (res.error == undefined) {
+            console.log(config.qiniuDomain + '/' + res.key);
             http.post('/rubbish/image_scan', {
-              image_url: res.imageURL
+              image_url: config.qiniuDomain+'/'+res.key
             }, res => {
               wx.hideLoading();
               if(res.data.code == 0){
