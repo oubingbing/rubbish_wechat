@@ -250,7 +250,7 @@ Page({
             return false;
           }
 
-          count.rate = 10 * (resData.data);
+          count.rate = resData.data;
 
           this.setData({ testCount: count, showResult: true, showRestar: true })
         });

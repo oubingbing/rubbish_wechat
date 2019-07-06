@@ -17,7 +17,7 @@
     </view>
     <view class='report-content' catchtap='doNotThing'>
       <view class='header-title'>
-        <image src='https://wx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTIzXDib7zrmdYyXID803afTWtwvorpoZgEUWGW37JOicoOt44VZ585Z7f9jibFMxib0zPmk3YF95kUfIQ/132'></image>
+        <image src='{{avatarUrl}}' wx:if="{{avatarUrl!=''}}"></image>
         <view>垃圾分类测试报告</view>
       </view>
       <view class='score-content'>
