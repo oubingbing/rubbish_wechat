@@ -13,6 +13,7 @@
   <!-- 测试结果 -->
   <view class='check-report' catchtap='closeResult' wx:if="{{showResult}}">
     <view class='close-button'>
+      <view class='saveTobutton' bindtap='saveTobutton'>保存</view>
       <image src='/images/colse.png' bindtap='closeResult'></image>
     </view>
     <view class='report-content' catchtap='doNotThing'>
@@ -43,7 +44,7 @@
     <!-- 轮播图 -->
     <view class='swiper'>
       <view class='test-title'>
-        <view>考试进行中（{{questions.length}}/{{showIndex+1}}）</view>
+        <view>测试进行中（{{questions.length}}/{{showIndex+1}}）</view>
       </view>
       <swiper indicator-dots="true" 
               indicator-color="#D6D6D6" 
@@ -123,5 +124,8 @@
       </button>
     </view>
   </view>
+
+  <poster id="poster" hidden='true' config="{{posterConfig}}" bind:success="onPosterSuccess" bind:fail="onPosterFail">
+</poster>
 
 </view>

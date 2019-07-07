@@ -1,5 +1,6 @@
 const http = require("./../../../utils/http.js");
 const util = require("./../../../utils/util.js");
+import Poster from '../../../components/canves/poster/poster';
 const app = getApp();
 
 Page({
@@ -23,14 +24,21 @@ Page({
     showRestar:false,
     isAnswer:true,
     show_auth:false,
-    avatarUrl:''
+    avatarUrl:'',
+    avatar:'',
+    bg:'',
+    poster:''
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    this.auth();
+  },
 
+  onReady:function(){
+    this.downLoadBg();
   },
 
   onSwiperChange: function (e) {
@@ -54,7 +62,6 @@ Page({
   },
 
   getQuestions: function () {
-    this.auth();
     http.get(`/rubbish/questions`, {}, res => {
       wx.hideLoading();
       let resData = res.data;
@@ -85,10 +92,11 @@ Page({
  * 监听用户点击授权按钮
  */
   getAuthUserInfo: function (data) {
-    this.setData({ avatarUrl: data.detail.userInfo.avatarUrl})
+    this.setData({ avatarUrl: data.detail.userInfo.avatarUrl});
     this.setData({
-      show_auth: false
+      show_auth: false,
     });
+    this.downLoadAvatar();
   },
 
   auth:function(){
@@ -102,8 +110,10 @@ Page({
         } else {
           wx.getUserInfo({
             success: res => {
-              that.setData({ avatarUrl: res.userInfo.avatarUrl })
-              console.log(res.userInfo.avatarUrl);
+              that.setData({
+                 avatarUrl: res.userInfo.avatarUrl, 
+              })
+              that.downLoadAvatar();
             }
           })
         }
@@ -115,6 +125,7 @@ Page({
    * 下一题
    */
   showNext:function(){
+
     let questions = this.data.questions;
     let showIndex = this.data.showIndex;
     if(showIndex == 9){
@@ -264,7 +275,11 @@ Page({
   closeResult: function () {
     this.setData({
       showResult: false
-    })
+    });
+  },
+
+  saveTobutton:function(){
+    this.createPoster();
   },
 
   doNotThing: function () {
@@ -318,4 +333,169 @@ Page({
       }
     }
   },
+
+  createPoster:function(){
+    console.log(this.data.avatarUrl)
+    let testCount = this.data.testCount;
+    let posterConfig = {
+      defaultConfig: {
+        width: 375,
+        height: 667,
+        debug: false,
+        images: [
+          {
+            width: 375,
+            height: 667,
+            x: 0,
+            y: 0,
+            url: this.data.bg,
+          },
+          {
+            width: 60,
+            height: 20,
+            x: 270,
+            y: 170,
+            url: '/images/score-bg.png',
+            zIndex: 99
+          },
+          {
+            width: 80,
+            height: 80,
+            x: 160,
+            y: 140,
+            url: '/images/qr-code.jpg',
+            zIndex: 100
+          },
+          {
+            width: 50,
+            height: 50,
+            borderRadius: 10,
+            x: 35,
+            y: 40,
+            url: this.data.avatar,
+          }
+        ],
+        texts: [
+          {
+            x: 100,
+            y: 70,
+            text: '垃圾分类测试报告',
+            fontSize: 22,
+            color: '#EE2C2C',
+            zIndex: 100
+          },
+          {
+            x: 50,
+            y: 160,
+            text: `共` + testCount.totle_count+'题',
+            fontSize: 18,
+            color: 'gray',
+            zIndex: 100
+          },
+          {
+            x: 50,
+            y: 190,
+            text: `答错：` + testCount.error,
+            fontSize: 18,
+            color: 'gray',
+            zIndex: 100
+          },
+          {
+            x: 50,
+            y: 220,
+            text: `答对：` + testCount.right,
+            fontSize: 18,
+            color: 'gray',
+            zIndex: 100
+          },
+          {
+            x: 50,
+            y: 250,
+            text: `测试得分：` + testCount.score,
+            fontSize: 18,
+            color: 'gray',
+            zIndex: 100
+          },
+          {
+            x: 50,
+            y: 300,
+            text: `垃圾分类熟练度超过,全国${testCount.rate}%的用户`,
+            fontSize: 18,
+            color: '#EE2C2C',
+            zIndex: 100
+          },
+          {
+            x: 290,
+            y: 170,
+            text: testCount.score,
+            fontSize: 22,
+            color: '#EE2C2C',
+            zIndex: 100
+          },
+
+        ],
+        blocks: [
+          {
+            width: 310,
+            height: 667 / 2.7,
+            x: 32,
+            y: 120,
+            backgroundColor: 'white',
+            borderRadius: 20,
+            zIndex: 90
+          }
+        ]
+      }
+    }
+
+    this.setData({ posterConfig: posterConfig.defaultConfig }, () => {
+      Poster.create(true);    // 入参：true为抹掉重新生成 
+    });
+  },
+
+  downLoadAvatar: function () {
+    let avatar = this.data.avatarUrl;
+    console.log("头像")
+    console.log(avatar)
+    wx.downloadFile({
+      url: avatar,
+      success: res => {
+        console.log('头像下载');
+        console.log(res)
+        this.setData({
+          avatar: res.tempFilePath
+        })
+      }
+    })
+  },
+
+  onPosterSuccess(e) {
+    const { detail } = e;
+    let that = this;
+    wx.saveImageToPhotosAlbum({
+      filePath: detail,
+      success(res) {
+        console.log(res);
+      }
+    })
+  },
+  onPosterFail(err) {
+    console.log("出错了");
+    console.error(err);
+  },
+
+  downLoadBg: function () {
+    let bg = 'http://article.qiuhuiyi.cn/tmp/wx18ac06afc8eaed33.o6zAJs3oh85Zb1lJE8oWix57vny0.XCu0lmzRHYP53b7dcd6e5aaaae15a74c1fbd0916708b.jpg';
+    wx.downloadFile({
+      url: bg,
+      success: res => {
+        if (res.statusCode === 200) {
+          this.setData({
+            bg: res.tempFilePath
+          })
+        }
+      }
+    })
+  },
+
 })

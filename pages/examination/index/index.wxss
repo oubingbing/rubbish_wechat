@@ -2,6 +2,60 @@ page{
   background-color: #F5F5F5;
 }
 
+.test-poste{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  z-index: 100;
+}
+
+.test-poste image{
+  width: 100%;
+  height: 100%;
+}
+
+/** 画图 **/
+.canvas-container{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  z-index: 400;
+  background:rgba(2,2,2,0.8);
+  justify-content: center;
+  align-items: center;
+}
+
+.convas{
+  width: 375px;
+  border-radius: 5rpx;
+  height: 667px;
+  border: 1px solid;
+  display: flex;
+  flex-direction: column;
+  background: darkgray;
+  background-repeat:no-repeat; 
+  background-size:100% 100%;
+  background:rgba(2,2,2,0.7);
+
+}
+
+.convas-save{
+  width: 100%;
+  border-radius: 5rpx;
+  height: 100%;
+  border: 1px solid;
+  display: flex;
+  flex-direction: column;
+  background: darkgray;
+  background-repeat:no-repeat; 
+  background-size:100% 100%;
+  background:rgba(2,2,2,0.8);
+}
+
 .qr-code{
   width: 150rpx;
   height: 150rpx;
@@ -350,12 +404,21 @@ page{
 .close-button{
   width: 100%;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
+  justify-content: space-around;
   padding: 10rpx 0rpx;
   z-index: 200;
   position: fixed;
   top: 10rpx;
+}
+
+.saveTobutton{
+  padding: 10rpx 30rpx;
+  background: #3CC4A9;
+  color: white;
+  font-size: 30rpx;
+  border-radius: 30rpx;
 }
 
 .close-button image{
