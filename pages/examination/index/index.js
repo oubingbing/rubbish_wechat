@@ -485,7 +485,7 @@ Page({
   },
 
   downLoadBg: function () {
-    let bg = 'http://article.qiuhuiyi.cn/tmp/wx18ac06afc8eaed33.o6zAJs3oh85Zb1lJE8oWix57vny0.XCu0lmzRHYP53b7dcd6e5aaaae15a74c1fbd0916708b.jpg';
+    let bg = 'https://image.qiuhuiyi.cn/tmp/wx18ac06afc8eaed33.o6zAJs3oh85Zb1lJE8oWix57vny0.XCu0lmzRHYP53b7dcd6e5aaaae15a74c1fbd0916708b.jpg';
     wx.downloadFile({
       url: bg,
       success: res => {

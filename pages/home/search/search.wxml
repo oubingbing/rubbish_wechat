@@ -6,7 +6,8 @@
         <input type='text' 
                class='search-input'
                value='{{searchName}}' 
-               placeholder="搜索"         
+               placeholder="搜索"  
+               auto-focus='true'      
                bindinput='getSearchName'/>
         <view class='search-image' bindtap='search'>
           <image mode="" src='/images/search.png'></image>
