@@ -9,7 +9,7 @@
   ],
   "window": {
     "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "white",
+    "navigationBarBackgroundColor": "#ffff",
     "navigationBarTitleText": "垃圾分类鉴定",
     "navigationBarTextStyle": "black"
   },

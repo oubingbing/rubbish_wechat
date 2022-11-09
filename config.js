@@ -4,13 +4,13 @@ const config={
     qiniuDomain:"https://image.qiuhuiyi.cn",
   },
   prod:{//生产环境
-    domain: "https://heping.qiuhuiyi.cn/api/wechat",
+    domain: "http://heping.qiuhuiyi.cn/api/wechat",
     qiniuDomain: "https://image.qiuhuiyi.cn"
   }
 }
 
-const domain = config.prod.domain;
-//const domain = config.dev.domain;
+//const domain = config.prod.domain;
+const domain = config.dev.domain;
 
 const qiniuDomain = config.prod.qiniuDomain;
 
